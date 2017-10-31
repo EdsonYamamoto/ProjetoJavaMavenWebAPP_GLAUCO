@@ -1,0 +1,10 @@
+iframe#frame-spec{
+	width: 782px;
+	height: 640px;
+	border: none;
+	overflow: hidden;
+}
+
+iframe#frame-spec::-webkit-scrollbar{
+	display: none;
+}

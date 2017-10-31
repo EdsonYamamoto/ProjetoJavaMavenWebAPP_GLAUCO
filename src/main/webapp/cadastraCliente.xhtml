@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		>
+	<h:head>
+		<meta charset="UTF-8" />
+		 
+	    <link rel="stylesheet" type="text/css" media="screen" href="..\css\form.css"/>
+	    
+	</h:head>
+	<h:body>
+		<div id ="form">
+			<h:form method="post" id="formCadastroCliente">
+					<fieldset id="usuario"><legend>Formulario cadastro produto</legend>
+						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{clienteMB.cliente.codigo}"> </h:inputText></p>
+						<p><label for="cNome"> Name: </label><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{clienteMB.cliente.nome}"> </h:inputText></p>
+						<p><label for="cEndereco"> Endereço: </label><h:inputText type="text" name="tEndereco" id="cEndereco" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{clienteMB.cliente.endereco}"> </h:inputText></p>
+						<p><label for="cTelefone"> Telefone: </label><h:inputText type="tel" name="tTelefone" id="cTelefone" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{clienteMB.cliente.telefone}"> </h:inputText></p>
+						<p><label for="cStatus"> Status: </label><h:inputText type="text" name="tStatus" id="cStatus" size="35" maxlength="40" placeholder="bom / medio / ruim" value="#{clienteMB.cliente.status}"> </h:inputText></p>
+						
+						<p><label for="cMail"> E-mail: </label><h:inputText type="email" name="tMail" id="cMail" size="35" maxlength="40" placeholder="XXXXXXXXXXXXXX@XXXX.com" value="#{clienteMB.cliente.email}"> </h:inputText></p>
+						<p><label for="cNasc"> Birthday: </label><h:inputText type="date" name="tNasc" id="cNasc" value="#{clienteMB.cliente.dataNascimento}"> </h:inputText></p>
+						
+						 
+						<p:commandButton value="Salvar"
+					                 action="#{clienteMB.salvar()}"
+					                 update=":formCadastroCliente"  
+					/>
+					</fieldset>
+					<p:dataTable var="cli" value="#{clienteMB.clientes}"
+					             editable="true" editMode="cell"
+					>
+						<p:column value="id">
+						
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.codigo}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.codigo}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.nome}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.nome}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						   
+						</p:column>
+						
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.endereco}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.endereco}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.telefone}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.telefone}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.status}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.status}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.email}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.email}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						   
+						</p:column>
+												
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{cli.dataNascimento}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{cli.dataNascimento}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+						<p:column>
+						
+						     <p:commandLink value="Excluir" action="#{clienteMB.remover(cli)}" update="formCadastroCliente"></p:commandLink>
+						</p:column>
+					
+					</p:dataTable>
+					
+				</h:form>
+			</div>
+	</h:body>
+</html>
