@@ -3,8 +3,9 @@ package entidade;
 public class Pedido {
 	private int id;
 	private String data;
-	private Produto produto;
-	private int quantidade;
+	private Item item;
+	private Cliente cliente;
+	
 }
 /*
  * Guarda-se igualmente a informação dos pedidos feitos pelos clientes. 
