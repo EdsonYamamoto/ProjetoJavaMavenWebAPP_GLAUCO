@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://xmlns.jcp.org/jsf/html"
+<html 	xmlns="http://www.w3.org/1999/xhtml"   
+      	xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:p="http://primefaces.org/ui"
-		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		>
-	<head>
+      	lang="en"
+      >
+ 
+    <h:head>
+    
+	    <link rel="stylesheet" type="text/css" media="screen" href="..\css\estilo.css"/>
+	    <link rel="stylesheet" type="text/css" media="screen" href="..\css\frame.css"/>
+	
+	    <title>Title of Page</title>
+    </h:head>
+ 
+    <h:body>
+ 	<div id="interface">
+		    <div id="header">
+				<ui:insert name="head" >
+				  	<ui:include src=".\header.xhtml" />
+				</ui:insert>
+		    </div>
+	 
+		    <div id="content">
+			  	<ui:insert name="content" >
+			  	<p:layout style="min-width:800px;min-height:700px;">
+			    	<p:layoutUnit position="west" resizable="true" size="130" minSize="40" maxSize="200">
+				        <iframe src="" class="noscroll" scrolling="yes" name="menu" id="frame-spec"> </iframe>
+				    </p:layoutUnit>
+				    
+				    <p:layoutUnit position="center">
+				    	<iframe src=".\layout.xhtml" class="noscroll" scrolling="yes" name="janela" id="frame-spec"> </iframe>
+				    </p:layoutUnit>
+				</p:layout>
+			   	</ui:insert>
+		    </div>
+	 
+		    <div id="footer">
+			    <ui:insert name="foot" >
+			    	<ui:include src=".\footer.xhtml" />
+			    </ui:insert>
+	    	</div>
+	 
+	    </div>
 		
-	    <link rel="stylesheet" type="text/css" media="screen" href="..\css\form.css"/>
-	    
-	</head>
-	<body>
-		trabalho de programação orientado a objeto.
-		
-		
-	<h1>private int codigo;</h1>
-	<h1>private String nome;</h1>
-	<h1>private String categoria;</h1>
-	<h1>private double preco;</h1>
-	</body>
+ 
+    </h:body>
 </html>
