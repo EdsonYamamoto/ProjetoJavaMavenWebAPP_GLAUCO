@@ -14,7 +14,8 @@
 	<h:body>
 		<div id ="form">
 			<h:form method="post" id="formCadastroCliente">
-					<fieldset id="usuario"><legend>Formulario cadastro Cliente</legend>
+					<fieldset id="usuario">
+					<legend>Formulario cadastro Cliente</legend>
 						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{clienteMB.cliente.codigo}"> </h:inputText></p>
 						<p><label for="cNome"> Name: </label><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{clienteMB.cliente.nome}"> </h:inputText></p>
 						<p><label for="cEndereco"> Endereço: </label><h:inputText type="text" name="tEndereco" id="cEndereco" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{clienteMB.cliente.endereco}"> </h:inputText></p>

@@ -2,14 +2,14 @@ package managedbean;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+
 
 import entidade.Categoria;
-import entidade.Cliente;
 
-@ManagedBean
-@SessionScoped
+@ManagedBean(eager=true)
+@ApplicationScoped
 public class CategoriaMB {
 
 	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();

@@ -18,6 +18,7 @@
 		<ui:composition>
 			<h1>Vendedora de alimentos</h1>
 			<h2>Supermercado</h2>
+			<!-- 
 			<nav id="menu">
 				<h1>Menu Principal</h1>
 				<ul type="disc">
@@ -30,7 +31,54 @@
 					</b>
 				</ul>
 			</nav>
-			
+  			-->
+  			
+			<p:megaMenu orientation="#{megaMenuView.orientation}" style="margin-top:20px">
+			    <p:submenu label="Clientes" icon="ui-icon-check">
+			        <p:column>
+			            <p:submenu label="Cliente">
+			                <p:menuitem value="Cadastrar" url="cadastraCliente.xhtml" target="janela"/>
+			                <p:menuitem value="Listar" url="viewCliente.xhtml" target="janela"/>
+			            </p:submenu>
+			        </p:column>
+			 
+			    </p:submenu>
+			 	
+			    <p:submenu label="Categoria" icon="ui-icon-document">
+			 
+			        <p:column>
+			            <p:submenu label="Categoria">
+			                <p:menuitem value="Cadastrar" url="cadastraCategoria.xhtml" target="janela"/>
+			                <p:menuitem value="listar" url="viewCategoria.xhtml" target="janela"/>
+			            </p:submenu>
+			        </p:column>
+			 
+			    </p:submenu>
+			 
+			    <p:submenu label="Produto" icon="ui-icon-pencil">
+			        <p:column>
+			            <p:submenu label="Produto Exterior">
+			                <p:menuitem value="Cadastrar" url="cadastraProdutoExterior.xhtml" target="janela"/>
+			                <p:menuitem value="Listar" url="viewProdutoExterior.xhtml" target="janela"/>
+			            </p:submenu>
+			            <p:submenu label="Produto Interior">
+			                <p:menuitem value="Cadastrar" url="cadastraProdutoInterior.xhtml" target="janela"/>
+			                <p:menuitem value="Listar" url="cadastraProdutoInterior.xhtml" target="janela"/>
+			            </p:submenu>
+			        </p:column>
+			 
+			    </p:submenu>
+			    <p:submenu label="Pedido" icon="ui-icon-pencil">
+			        <p:column>
+			            <p:submenu label="Pedido">
+			                <p:menuitem value="Cadastrar" url="cadastraPedido.xhtml" target="janela"/>
+			                <p:menuitem value="Listar" url="viewPedido.xhtml" target="janela"/>
+			            </p:submenu>
+			        </p:column>
+			 
+			    </p:submenu>
+			    <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+			</p:megaMenu>
 	    </ui:composition>
     </body>
 </html>

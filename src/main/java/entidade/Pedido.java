@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class Pedido {
 	private int id;
 	private String data;
-	private Item item;
+	private ArrayList<Item> item;
 	private Cliente cliente;
+	private double custoTotal;
+	private double imposto;
+	
 	public int getId() {
 		return id;
 	}
@@ -20,11 +23,11 @@ public class Pedido {
 		this.data = data;
 	}
 	
-	public Item getItem() {
+	public ArrayList<Item> getItem() {
 		return item;
 	}
-	public void setItem(Item i) {
-		this.item = i;
+	public void setItem(ArrayList<Item> item) {
+		this.item = item;
 	}
 	public Cliente getCliente() {
 		return cliente;
@@ -32,6 +35,23 @@ public class Pedido {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	public double calculaTotal()
+	{
+		for(Item p : item)
+			custoTotal +=p.getProduto().getPreco()*p.getQuantidade();
+		
+		return custoTotal;
+	}
+	
+	public double calculaImposto()
+	{
+		for(Item p : item)
+			imposto +=p.getProduto().getImposto()*p.getQuantidade();
+		
+		return imposto;
+	}
+	
 	@Override
 	public String toString()
 	{

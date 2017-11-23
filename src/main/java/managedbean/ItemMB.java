@@ -2,11 +2,17 @@ package managedbean;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
 import entidade.Item;
 
+@ManagedBean(eager=true)
+@ApplicationScoped
 public class ItemMB {
 	private ArrayList<Item> itens = new ArrayList<Item>();
 	private Item item = new Item();
+	
 	public ArrayList<Item> getItens() {
 		return itens;
 	}

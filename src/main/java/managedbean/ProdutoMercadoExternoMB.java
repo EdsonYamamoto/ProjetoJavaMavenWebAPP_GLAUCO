@@ -3,13 +3,14 @@ package managedbean;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import entidade.ProdutoMercadoExterno;
 
-@ManagedBean
-@SessionScoped
+@ManagedBean(eager=true)
+@ApplicationScoped
 public class ProdutoMercadoExternoMB {
 
 	private ArrayList<ProdutoMercadoExterno> produtos = new ArrayList<ProdutoMercadoExterno>();

@@ -20,18 +20,15 @@
 						<p><label for="cNome"> Name: </label><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoExternoMB.produto.nome}"> </h:inputText></p>
 						
 						<p><label for="cCategoria"> Categoria: </label>
-						<p:selectOneMenu id="cCategoria" value="#{produtoMercadoExternoMB.produto.categoria}" 
-						    required="true"
-						    
-						    >
+						<p:selectOneMenu 	id="cCategoria" 
+											value="#{produtoMercadoExternoMB.produto.categoria}" 
+											required="true"
+						 					converter="categoriaConverter">
+						 					
             				<f:selectItem itemLabel="Select One" itemValue="" />
-            				<f:selectItems value="#{categoriaMB.categorias}"  var="" itemValue="" />
-        					<!--<f:converter converterId="cCategoriaConverter" />-->
-        					
+            				<f:selectItems value="#{categoriaMB.categorias}"  var="cat" itemValue="#{cat}" itemLabel="#{cat.descricao}"/>					
         				</p:selectOneMenu></p>
-						<!--
-						<p><label for="cCategoria"> Categoria: </label><h:inputText type="text" name="tCategoria" id="cCategoria" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{produtoMercadoExternoMB.produto.categoria}"> </h:inputText></p>
-						-->
+
 						<p><label for="cPreco"> Preço: </label><h:inputText type="tel" name="tPreco" id="cPreco" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.preco}"> </h:inputText></p>
 						<p><label for="cImposto"> Imposto: </label><h:inputText type="tel" name="tImposto" id="cImposto" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.imposto}"> </h:inputText></p>
 						<p><label for="cDestino"> Destino: </label><h:inputText type="tel" name="tDestino" id="cDestino" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.destino}"> </h:inputText></p>

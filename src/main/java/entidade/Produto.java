@@ -1,6 +1,6 @@
 package entidade;
 
-public abstract class ProdutoVenda {
+public abstract class Produto {
 	protected int codigo;
 	protected String nome;
 	protected Categoria categoria;

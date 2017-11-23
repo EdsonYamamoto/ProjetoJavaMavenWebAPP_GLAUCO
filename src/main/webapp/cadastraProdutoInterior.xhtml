@@ -19,16 +19,17 @@
 						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoInternoMB.produto.codigo}"> </h:inputText></p>
 						<p><label for="cNome"> Name: </label><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoInternoMB.produto.nome}"> </h:inputText></p>
 						
-						
 						<p><label for="cCategoria"> Categoria: </label>
-						
-						<p:selectOneMenu id="cCategoria" value="#{produtoMercadoInternoMB.produto.categoria}" converter="categoriaConverter">
+						<p:selectOneMenu 	id="cCategoria" 
+											value="#{produtoMercadoInternoMB.produto.categoria}" 
+											required="true"
+						 					converter="categoriaConverter">
+						 					
             				<f:selectItem itemLabel="Select One" itemValue="" />
-            				<f:selectItems value="#{categoriaMB.categorias}" var="" itemValue="" />
-            				<!--<f:selectItems value="#{categoriaMB.categorias}" var="categoria" itemValue="#{categoria}" />
-        					<f:converter converterId="cCategoriaConverter" />-->
-        				</p:selectOneMenu>
-        				</p>
+            				<f:selectItems value="#{categoriaMB.categorias}"  var="cat" itemValue="#{cat}" itemLabel="#{cat.descricao}"/>
+        					<!--<f:converter converterId="cCategoriaConverter" />-->
+        					
+        				</p:selectOneMenu></p>
 						<!--
 						<p><label for="cCategoria"> Categoria: </label><h:inputText type="text" name="tCategoria" id="cCategoria" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{produtoMercadoInternoMB.produto.categoria}"> </h:inputText></p>
 						-->

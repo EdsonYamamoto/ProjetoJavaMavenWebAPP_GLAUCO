@@ -1,6 +1,6 @@
 package entidade;
 
-public class ProdutoMercadoInterno extends ProdutoVenda{
+public class ProdutoMercadoInterno extends Produto{
 	protected double incentivo;
 
 	public double getIncentivo() {

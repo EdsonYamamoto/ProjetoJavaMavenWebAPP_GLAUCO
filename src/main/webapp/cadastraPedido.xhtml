@@ -13,60 +13,156 @@
 	</h:head>
 	<h:body>
 		<div id ="form">
-			<h:form method="post" id="formCadastroPedido">
-					<fieldset id="usuario"><legend>Formulario Cadastro Pedido</legend>
-						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{pedidoMB.pedido.id}"> </h:inputText></p>
-						<p><label for="cCategoria"> Cliente: </label>
-						<p:selectOneMenu id="cCliente" value="#{pedidoMB.pedido.cliente}" required="true">
-            				<f:selectItem itemLabel="Select One" itemValue="" />
-            				<f:selectItems value="#{clienteMB.clientes}" var="" itemValue="" itemLabel="#{clienteMB.cliente.nome}" />
-        					<!--<f:converter converterId="cCategoriaConverter" />-->
-        				</p:selectOneMenu></p>
-						<p><label for="cData"> Data: </label><h:inputText type="date" name="tCategoria" id="cCategoria" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{pedidoMB.pedido.data}"> </h:inputText></p>
-						
-						
-						<p:commandButton value="Salvar"
-					                 action="#{pedidoMB.salvar()}"
-					                 update="formCadastroPedido"  
-						/>
+		
+			<h:form method="post" id="formCadastroCarrinhoExterior">
+			
+            		<fieldset><LEGEND>Produtos Exterior</LEGEND>
+	            		
+		            	<p><label for="cProdutoExterior"> Produto exterior: </label></p>
+						<p><p:selectOneMenu id="cProdutoExterior" 
+											value="#{itemMB.item.produto}" 
+											required="true"
+							 				converter="produtoMercadoExternoConverter">
+								 					
+		            		<f:selectItem itemLabel="Select One" itemValue="" />
+		            		<f:selectItems value="#{produtoMercadoExternoMB.produtos}"  var="pro" itemValue="#{pro}" itemLabel="#{pro.nome}"/>
+		            	</p:selectOneMenu></p>
 
-					</fieldset>
-					<p:dataTable var="pro" value="#{produtoMB.produtos}"
+				<p>
+					<label for="cQuantidade">Quantidade</label>
+					<h:inputText type="number" name="tQuantidade" id="cQuantidade"
+						size="35" maxlength="40" placeholder="0"
+						value="#{itemMB.item.quantidade}">
+					</h:inputText>
+				</p>
+				<p:commandButton 	value="Salvar"
+	            					action="#{itemMB.salvar()}"
+					                update=":formCadastroCarrinhoExterior"
+						/>
+						
+						
+            		</fieldset>
+            		<p:dataTable var="it" value="#{itemMB.itens}"
 					             editable="true" editMode="cell"
 					>
-					
 						<p:column>
 							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.codigo}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.codigo}" style="width:96%"/></f:facet>
+					                  <f:facet name="output"><p:outputLabel value="#{it.produto}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{it.produto}" style="width:96%"/></f:facet>
 					           </p:cellEditor>
 						</p:column>
 						
 						<p:column>
 							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.nome}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.nome}" style="width:96%"/></f:facet>
+					                  <f:facet name="output"><p:outputLabel value="#{it.quantidade}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{it.quantidade}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+					</p:dataTable>
+			</h:form>
+			
+			
+			<h:form method="post" id="formCadastroCarrinhoInterior">
+
+            		<fieldset><legend>Produtos Interior</legend>
+	            			
+		            	<p><label for="cProdutoInterior"> Produto interior: </label>
+						<p:selectOneMenu 	id="cProdutoInterior" 
+											value="#{itemMB.item.produto}" 
+											required="true"
+							 				converter="produtoMercadoInternoConverter">
+								 					
+		            		<f:selectItem itemLabel="Select One" itemValue="" />
+		            		<f:selectItems value="#{produtoMercadoInternoMB.produtos}"  var="prod" itemValue="#{prod}" itemLabel="#{prod.nome}"/>
+		            	</p:selectOneMenu></p>
+		            	<p><label for="cQuantidade">Quantidade</label>
+		            	<h:inputText type="number" name="tQuantidade" id="cQuantidade" size="35" maxlength="40" placeholder="0" value="#{itemMB.item.quantidade}" var="qtd"> </h:inputText></p>
+	            		<p:commandButton 	value="Salvar"
+					                 		action="#{itemMB.salvar()}"
+					                 		update=":formCadastroCarrinhoInterior"  
+						/>
+            		</fieldset>
+            		<p:dataTable var="it" value="#{itemMB.itens}"
+					             editable="true" editMode="cell"
+					>
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{it.produto}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{it.produto}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{it.quantidade}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{it.quantidade}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+					</p:dataTable>
+			</h:form>
+			
+			 
+			<h:form method="post" id="formCadastroPedido">
+					<fieldset id="usuario"><legend>Formulario Cadastro Pedido</legend>
+						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{pedidoMB.pedido.id}"> </h:inputText></p>
+						 
+						<p><label for="cCliente"> Cliente: </label>
+						<p:selectOneMenu 	id="cCliente" 
+											value="#{pedidoMB.pedido.cliente}" 
+											required="true"
+						 					converter="clienteConverter">
+						 					
+            				<f:selectItem itemLabel="Select One" itemValue="" />
+            				<f:selectItems value="#{clienteMB.clientes}"  var="cli" itemValue="#{cli}" itemLabel="#{cli.nome}"/>
+            			</p:selectOneMenu></p>
+            			
+						<p><label for="cData"> Data: </label><h:inputText type="date" name="tCategoria" id="cCategoria" size="35" maxlength="40" placeholder="rua / cidade / estado" value="#{pedidoMB.pedido.data}"> </h:inputText></p>
+						
+						
+						<p:commandButton value="Salvar"
+					                 action="#{pedidoMB.salvar(itemMB.itens)}"
+					                 update=":formCadastroPedido"  
+						/>
+
+					</fieldset>
+					
+					<p:dataTable var="ped" value="#{pedidoMB.pedidos}"
+					             editable="true" editMode="cell"
+					>
+					
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{ped.id}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{ped.id}" style="width:96%"/></f:facet>
+					           </p:cellEditor>
+						</p:column>
+						
+						<p:column>
+							   <p:cellEditor>
+					                  <f:facet name="output"><p:outputLabel value="#{ped.cliente}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{ped.cliente}" style="width:96%"/></f:facet>
 					           </p:cellEditor>
 						   
 						</p:column>
 						
 						<p:column>
 							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.categoria}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.categoria}" style="width:96%"/></f:facet>
+					                  <f:facet name="output"><p:outputLabel value="#{ped.item}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{ped.item}" style="width:96%"/></f:facet>
 					           </p:cellEditor>
 						</p:column>
 						
 						<p:column>
 							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.preco}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.preco}" style="width:96%"/></f:facet>
+					                  <f:facet name="output"><p:outputLabel value="#{ped.data}"/></f:facet>
+					                  <f:facet name="input"><p:inputText    value="#{ped.data}" style="width:96%"/></f:facet>
 					           </p:cellEditor>
 						</p:column>
 
 						<p:column>
-						
-						     <p:commandLink value="Excluir" action="#{produtoMB.remover(pro)}" update="formCadastroProduto"></p:commandLink>
+						     <p:commandLink value="Excluir" action="#{pedidoMB.remover(ped)}" update="formCadastroPedido"></p:commandLink>
 						</p:column>
 					
 					</p:dataTable>

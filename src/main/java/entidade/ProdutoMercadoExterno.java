@@ -1,6 +1,6 @@
 package entidade;
 
-public class ProdutoMercadoExterno extends ProdutoVenda {
+public class ProdutoMercadoExterno extends Produto {
 	protected String destino;
 
 	public String getDestino() {
