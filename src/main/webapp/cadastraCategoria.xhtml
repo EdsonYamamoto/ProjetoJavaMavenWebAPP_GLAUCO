@@ -15,7 +15,7 @@
 		<div id ="form">
 			<h:form method="post" id="formCadastroCategoria">
 					<fieldset id="usuario"><legend>Formulario cadastro Categoria</legend>
-						<p><label for="cDescricao"> Nome: </label><h:inputText type="number" name="tDescricao" id="cDescricao" size="35" maxlength="40" placeholder="Name" value="#{categoriaMB.categoria.descricao}"> </h:inputText></p>
+						<p><p:outputLabel for="cDescricao"> Nome: </p:outputLabel><h:inputText type="number" name="tDescricao" id="cDescricao" size="35" maxlength="40" placeholder="Name" value="#{categoriaMB.categoria.descricao}"> </h:inputText></p>
 						
 						 
 						<p:commandButton value="Salvar"
@@ -23,19 +23,24 @@
 					                 update="formCadastroCategoria"  
 					/>
 					</fieldset>
-					<p:dataTable var="cat" value="#{categoriaMB.categorias}"
-					             editable="true" editMode="cell"
-					>
-						<p:column value="descricao"  headerText="Nome">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{cat.descricao}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{cat.descricao}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-					</p:dataTable>
-					
-					
+					<p:dataScroller value="#{categoriaMB.categorias}" var="cat" chunkSize="10">
+				        <f:facet name="header">
+				            Categoria
+				        </f:facet>
+				 
+				        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+				 
+				            <p:outputPanel>
+				            	<fieldset>
+					                <h:panelGrid columns="2" cellpadding="5">
+					                	
+					                    <h:outputText value="Descricao:" />
+					                    <h:outputText value="#{cat.descricao}" style="font-weight: bold"/>
+					                </h:panelGrid>
+								</fieldset>
+				            </p:outputPanel>
+				        </h:panelGrid>
+		    		</p:dataScroller>
 				</h:form>
 			</div>
 	</h:body>

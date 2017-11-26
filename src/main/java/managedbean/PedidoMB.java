@@ -16,8 +16,6 @@ public class PedidoMB {
 	private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
 	private Pedido pedido = new Pedido();
 	
-	
-	
 	public ArrayList<Pedido> getPedidos() {
 		return pedidos;
 	}
@@ -37,6 +35,8 @@ public class PedidoMB {
 		for(Item item : itens.getItens())
 			itensAux.add(item);
 		pedido.setItem(itensAux);
+		pedido.getCliente().setItem(itensAux);
+		
 		itens.setItens(new ArrayList<Item>());
 		
 		//itens.remover(Item);

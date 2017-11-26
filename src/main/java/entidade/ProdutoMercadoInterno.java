@@ -12,7 +12,7 @@ public class ProdutoMercadoInterno extends Produto{
 	}
 	@Override
 	public String toString() {
-		return "Produto [codigo=" + this.codigo + ", nome=" + nome + ", categoria=" + categoria +", preco=" + preco +", imposto=" + imposto +" ,incentivo:"+this.incentivo +"]";
+		return "ID=" + codigo + "\nnome=" + nome + "\ncategoria=" + categoria +"\npreco=" + preco +"\nimposto=" + imposto + "\ndestino:"+this.incentivo;
 	}
 	
 }

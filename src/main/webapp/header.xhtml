@@ -34,7 +34,8 @@
   			-->
   			
 			<p:megaMenu orientation="#{megaMenuView.orientation}" style="margin-top:20px">
-			    <p:submenu label="Clientes" icon="ui-icon-check">
+				<p:menuitem value="Home" url="layout.xhtml" target="janela"/>
+			    <p:submenu label="Clientes" icon="ui-icon-pencil">
 			        <p:column>
 			            <p:submenu label="Cliente">
 			                <p:menuitem value="Cadastrar" url="cadastraCliente.xhtml" target="janela"/>
@@ -44,8 +45,7 @@
 			 
 			    </p:submenu>
 			 	
-			    <p:submenu label="Categoria" icon="ui-icon-document">
-			 
+			    <p:submenu label="Categoria" icon="ui-icon-pencil">
 			        <p:column>
 			            <p:submenu label="Categoria">
 			                <p:menuitem value="Cadastrar" url="cadastraCategoria.xhtml" target="janela"/>
@@ -63,7 +63,7 @@
 			            </p:submenu>
 			            <p:submenu label="Produto Interior">
 			                <p:menuitem value="Cadastrar" url="cadastraProdutoInterior.xhtml" target="janela"/>
-			                <p:menuitem value="Listar" url="cadastraProdutoInterior.xhtml" target="janela"/>
+			                <p:menuitem value="Listar" url="viewProdutoInterior.xhtml" target="janela"/>
 			            </p:submenu>
 			        </p:column>
 			 

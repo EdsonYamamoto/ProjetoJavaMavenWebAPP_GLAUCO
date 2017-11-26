@@ -16,10 +16,10 @@
 			<h:form method="post" id="formCadastroProdutoExterior">
 					<fieldset id="usuario">
 						<legend>Formulario Cadastro Produto para Exterior</legend>
-						<p><label for="cCodigo"> Codigo: </label><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoExternoMB.produto.codigo}"> </h:inputText></p>
-						<p><label for="cNome"> Name: </label><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoExternoMB.produto.nome}"> </h:inputText></p>
+						<p><p:outputLabel for="cCodigo"> Codigo: </p:outputLabel><h:inputText type="number" name="tCodigo" id="cCodigo" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoExternoMB.produto.codigo}"> </h:inputText></p>
+						<p><p:outputLabel for="cNome"> Name: </p:outputLabel><h:inputText type="text" name="tNome" id="cNome" size="35" maxlength="40" placeholder="Name" value="#{produtoMercadoExternoMB.produto.nome}"> </h:inputText></p>
 						
-						<p><label for="cCategoria"> Categoria: </label>
+						<p><p:outputLabel for="cCategoria"> Categoria: </p:outputLabel>
 						<p:selectOneMenu 	id="cCategoria" 
 											value="#{produtoMercadoExternoMB.produto.categoria}" 
 											required="true"
@@ -29,9 +29,9 @@
             				<f:selectItems value="#{categoriaMB.categorias}"  var="cat" itemValue="#{cat}" itemLabel="#{cat.descricao}"/>					
         				</p:selectOneMenu></p>
 
-						<p><label for="cPreco"> Preço: </label><h:inputText type="tel" name="tPreco" id="cPreco" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.preco}"> </h:inputText></p>
-						<p><label for="cImposto"> Imposto: </label><h:inputText type="tel" name="tImposto" id="cImposto" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.imposto}"> </h:inputText></p>
-						<p><label for="cDestino"> Destino: </label><h:inputText type="tel" name="tDestino" id="cDestino" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.destino}"> </h:inputText></p>
+						<p><p:outputLabel for="cPreco"> Preço: </p:outputLabel><h:inputText type="tel" name="tPreco" id="cPreco" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.preco}"> </h:inputText></p>
+						<p><p:outputLabel for="cImposto"> Imposto: </p:outputLabel><h:inputText type="tel" name="tImposto" id="cImposto" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.imposto}"> </h:inputText></p>
+						<p><p:outputLabel for="cDestino"> Destino: </p:outputLabel><h:inputText type="tel" name="tDestino" id="cDestino" size="35" maxlength="40" placeholder="15 XXXXX-XXXX" value="#{produtoMercadoExternoMB.produto.destino}"> </h:inputText></p>
 						
 						
 						
@@ -41,61 +41,41 @@
 					/>
 						
 					</fieldset>
-					<p:dataTable var="pro" value="#{produtoMercadoExternoMB.produtos}"
-					             editable="true" editMode="cell"
-					>
 					
-						<p:column value="codigo"  headerText="Codigo">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.codigo}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.codigo}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="nome"  headerText="Nome">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.nome}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.nome}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						   
-						</p:column>
-						
-						<p:column value="categoria"  headerText="Categoria">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.categoria}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.categoria}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="preco"  headerText="Preço">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.preco}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.preco}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="imposto"  headerText="Imposto">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.imposto}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.imposto}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="destino"  headerText="Destino">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.destino}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.destino}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-
-						<p:column>
-						
-						     <p:commandLink value="Excluir" action="#{produtoMercadoExternoMB.remover(pro)}" update="formCadastroProdutoExterior"></p:commandLink>
-						</p:column>
-						
-					</p:dataTable>
-					
-			    	
+					<p:dataScroller value="#{produtoMercadoExternoMB.produtos}" var="pro" chunkSize="10">
+				        <f:facet name="header">
+				            Produto Mercado Exterior
+				        </f:facet>
+				 
+				        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+				 
+				            <p:outputPanel>
+				            	<fieldset>
+					                <h:panelGrid columns="2" cellpadding="5">
+					                	
+					                    <h:outputText value="Id:" />
+					                    <h:outputText value="#{pro.codigo}" style="font-weight: bold"/>
+					 
+					                    <h:outputText value="Nome:" />
+					                    <h:outputText value="#{pro.nome}" style="font-weight: bold"/>
+					 
+					                    <h:outputText value="Categoria:" />
+					                    <h:outputText value="#{pro.categoria}" style="font-weight: bold"/>
+					 
+					                    <h:outputText value="Preço:" />
+					                    <h:outputText value="#{pro.preco}" style="font-weight: bold"/>
+					 
+					                    <h:outputText value="Imposto:" />
+					                    <h:outputText value="#{pro.imposto}" style="font-weight: bold"/>
+					 
+					                    <h:outputText value="Destino:" />
+					                    <h:outputText value="#{pro.destino}" style="font-weight: bold"/>
+					                    
+					                </h:panelGrid>
+								</fieldset>
+				            </p:outputPanel>
+				        </h:panelGrid>
+		    		</p:dataScroller>
 				</h:form>
 			</div>
 	</h:body>

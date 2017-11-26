@@ -1,5 +1,7 @@
 package entidade;
 
+import java.util.ArrayList;
+
 public class Cliente {
 	private int codigo;
 	private String nome;
@@ -8,6 +10,15 @@ public class Cliente {
 	private String status;
 	private String email;
 	private String dataNascimento;
+	private ArrayList<Item>  item;
+	private double limiteCredito;
+	
+	public ArrayList<Item> getItem() {
+		return item;
+	}
+	public void setItem(ArrayList<Item> item) {
+		this.item = item;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -20,7 +31,6 @@ public class Cliente {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	private double limiteCredito;
 	public int getCodigo() {
 		return codigo;
 	}
@@ -59,6 +69,6 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Aluno [codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco +", telefone=" + telefone +", status=" + status +", limiteCredito=" + limiteCredito + "]";
+		return "ID=" + codigo + "\nnome=" + nome +"\ntelefone=" + telefone +"\nstatus=" + status +"\nlimiteCredito=" + limiteCredito;
 	}
 }

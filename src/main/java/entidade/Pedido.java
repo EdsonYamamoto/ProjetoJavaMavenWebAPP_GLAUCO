@@ -38,6 +38,7 @@ public class Pedido {
 	
 	public double calculaTotal()
 	{
+		custoTotal=0;
 		for(Item p : item)
 			custoTotal +=p.getProduto().getPreco()*p.getQuantidade();
 		
@@ -46,6 +47,7 @@ public class Pedido {
 	
 	public double calculaImposto()
 	{
+		imposto=0;
 		for(Item p : item)
 			imposto +=p.getProduto().getImposto()*p.getQuantidade();
 		

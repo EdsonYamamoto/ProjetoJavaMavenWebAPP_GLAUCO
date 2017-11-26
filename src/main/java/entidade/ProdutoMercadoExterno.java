@@ -13,6 +13,6 @@ public class ProdutoMercadoExterno extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Produto [codigo=" + codigo + ", nome=" + nome + ", categoria=" + categoria +", preco=" + preco +", imposto=" + imposto + " ,destino:"+this.destino+ "]";
+		return "ID=" + codigo + "\nnome=" + nome + "\ncategoria=" + categoria +"\npreco=" + preco +"\nimposto=" + imposto + "\ndestino:"+this.destino;
 	}
 }

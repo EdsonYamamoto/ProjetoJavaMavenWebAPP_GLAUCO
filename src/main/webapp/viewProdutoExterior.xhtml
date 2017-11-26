@@ -13,64 +13,87 @@
 	
 	    <title>Title of Page</title>
     	</h:head>
-    <h:body>
-		<h:form method="post" id="formCadastroProdutoExterior">
-					
-					<p:dataTable var="pro" value="#{produtoMercadoExternoMB.produtos}"
-					             editable="true" editMode="cell"
-					>
+<h:body>
+	<h:form method="post" id="formViewProdutoExterior">
 
-						<p:column value="codigo"  headerText="Codigo">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.codigo}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.codigo}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="nome"  headerText="Nome">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.nome}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.nome}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						   
-						</p:column>
-						
-						<p:column value="categoria"  headerText="Categoria">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.categoria}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.categoria}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="preco"  headerText="Preço">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.preco}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.preco}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="imposto"  headerText="Imposto">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.imposto}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.imposto}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-						<p:column value="destino"  headerText="Destino">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{pro.destino}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{pro.destino}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
+		<p:dataTable var="pro" value="#{produtoMercadoExternoMB.produtos}"
+			editable="true" editMode="cell">
 
-						<p:column>
-						
-						     <p:commandLink value="Excluir" action="#{produtoMercadoExternoMB.remover(pro)}" update="formCadastroProdutoExterior"></p:commandLink>
-						</p:column>
-						
-					</p:dataTable>
-					
-			    	
-				</h:form>
-	</h:body>
+			<p:column value="codigo" headerText="Codigo">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.codigo}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.codigo}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column value="nome" headerText="Nome">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.nome}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.nome}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+
+			</p:column>
+
+			<p:column value="categoria" headerText="Categoria">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.categoria}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.categoria}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column value="preco" headerText="Preço">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.preco}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.preco}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column value="imposto" headerText="Imposto">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.imposto}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.imposto}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column value="destino" headerText="Destino">
+				<p:cellEditor>
+					<f:facet name="output">
+						<p:outputLabel value="#{pro.destino}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{pro.destino}" style="width:96%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column>
+
+			<p:commandLink value="Excluir"
+					action="#{produtoMercadoExternoMB.remover(pro)}"
+					update="formViewProdutoExterior"></p:commandLink>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+</h:body>
 </html>

@@ -15,43 +15,26 @@
     	</h:head>
     <h:body>
 		<div id ="form">
-			<p:dataScroller value="#{dataScrollerView.cars}" var="car" chunkSize="10">
-		        <f:facet name="header">
-		            Scroll Down to Load More Cars
-		        </f:facet>
-		 
-		        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
-		 
-		            <p:outputPanel>
-		                <h:panelGrid columns="2" cellpadding="5">
-		                    <h:outputText value="Id:" />
-		                    <h:outputText value="#{car.id}" style="font-weight: bold"/>
-		 
-		                    <h:outputText value="Year:" />
-		                    <h:outputText value="#{car.year}" style="font-weight: bold"/>
-		 
-		                    <h:outputText value="Color:" />
-		                    <h:outputText value="#{car.color}" style="font-weight: bold"/>
-		                </h:panelGrid>
-		            </p:outputPanel>
-		        </h:panelGrid>
-	    	</p:dataScroller>
-			<h:form method="post" id="formCadastroCliente">
-					
-					<p:dataTable var="cat" value="#{categoriaMB.categorias}"
-					             editable="true" editMode="cell"
-					>
-						<p:column value="id"  headerText="ID">
-							   <p:cellEditor>
-					                  <f:facet name="output"><p:outputLabel value="#{cat.descricao}"/></f:facet>
-					                  <f:facet name="input"><p:inputText    value="#{cat.descricao}" style="width:96%"/></f:facet>
-					           </p:cellEditor>
-						</p:column>
-						
-					</p:dataTable>
-					
-					
-				</h:form>
-			</div>
+			<h:form method="post" id="formViewCategoria">
+
+				<p:dataTable var="cat" value="#{categoriaMB.categorias}"
+					editable="true" editMode="cell">
+					<p:column value="descricao" headerText="Nome">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:outputLabel value="#{cat.descricao}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{cat.descricao}" style="width:96%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column>
+						<p:commandLink value="Excluir" action="#{categoriaMB.remover(cat)}"
+							update="formViewCategoria"></p:commandLink>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
 	</h:body>
 </html>
